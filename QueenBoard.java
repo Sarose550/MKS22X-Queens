@@ -83,7 +83,9 @@ public class QueenBoard{
 			if(!isConflict(board, r, i)){//only place if there's no conflict
 				this.addQueen(r, i);
 				if(r == board.length - 1) total += 1; //you've got one
-				total += allSolutions(r - 1, 0); //increase the depth of the search and add the number of solutions found
+				else{
+					total += allSolutions(r + 1, 0); //increase the depth of the search and add the number of solutions found
+				}
 				this.removeQueen(r, i);//remove the queen, keep searching
 			}
 		}
