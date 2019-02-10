@@ -52,8 +52,7 @@ public class QueenBoard{
 				this.removeQueen(r, i);//if you didn't get a solution, remove the queen and keep going
 			}
 		}
-		if(r == board.length - 1) return false;//if you're at maximum depth and got no solution, go back one
-		return true;
+		return false;
 	}
 
 	public boolean isConflict(int[][] board, int r, int c){
