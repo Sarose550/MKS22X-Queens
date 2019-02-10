@@ -39,7 +39,6 @@ public class QueenBoard{
 				}
 			}
 		}
-		if(board.length == 2 || board.length == 3) return false;
 		return this.oneSolution(0);
 	}
 
