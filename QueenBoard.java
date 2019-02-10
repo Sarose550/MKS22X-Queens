@@ -64,7 +64,6 @@ public class QueenBoard{
 				}
 			}
 		}
-
 		return false;
 	}
 
@@ -76,6 +75,18 @@ public class QueenBoard{
 				}
 			}
 		}
-		return 0;
+		return this.allSolutions(0, 0);
+	}
+
+	public int allSolutions(int r, int total){
+		for(int i = 0; i < board.length; i++){
+			if(!isConflict(board, r, i)){//only place if there's no conflict
+				this.addQueen(r, i);
+				if(r == board.length - 1) total += 1; //you've got one
+				total += allSolutions(r - 1, 0); //increase the depth of the search and add the number of solutions found
+				this.removeQueen(r, i);//remove the queen, keep searching
+			}
+		}
+		return total;
 	}
 }
